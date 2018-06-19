@@ -1,12 +1,12 @@
 module "vpc" {
   source   = "app.terraform.io/Darnold-Hashicorp/vpc/aws"
-  version  = "${var.vpc_version}"
+  version  = "1.0.0}"
   vpc_cidr = "${var.vpc_cidr}"
 }
 
 module "public-subnet" {
   source            = "app.terraform.io/Darnold-Hashicorp/public-subnet/aws"
-  version           = "${var.public_subnet_version}"
+  version           = "1.0.0"
   subnet_name       = "${var.network_name}-public"
   vpc_id            = "${module.vpc.vpc_id}"
   route_table_id    = "${module.vpc.route_table_id}"
@@ -17,7 +17,7 @@ module "public-subnet" {
 
 module "private-subnet" {
   source            = "app.terraform.io/Darnold-Hashicorp/private-subnet/aws"
-  version           = "${var.private_subnet_version}"
+  version           = "1.0.0"
   subnet_name       = "${var.network_name}-private"
   vpc_id            = "${module.vpc.vpc_id}"
   public_subnet_id  = "${module.public-subnet.subnet_id}"
@@ -28,7 +28,7 @@ module "private-subnet" {
 
 module "bastion" {
   source           = "app.terraform.io/Darnold-Hashicorp/bastion/aws"
-  version          = "${var.bastion_version}"
+  version          = "1.0.2"
   admin_sg         = "${module.private_subnet.admin_sg}"
   cluster_name     = "${var.network_name}"
   key_name         = "${var.key_name}"
