@@ -26,6 +26,6 @@ variable "availability_zone" {
 }
 
 variable "region" {
-  type        = "region"
+  type        = "string"
   description = "Region where resources will live"
 }
