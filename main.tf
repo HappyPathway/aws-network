@@ -6,23 +6,23 @@ module "vpc" {
 
 module "public-subnet" {
   source            = "app.terraform.io/Darnold-Hashicorp/public-subnet/aws"
-  version           = "1.0.0"
+  version           = "1.0.1"
   subnet_name       = "${var.network_name}-public"
   vpc_id            = "${module.vpc.vpc_id}"
   route_table_id    = "${module.vpc.route_table_id}"
   availability_zone = "${var.availability_zone}"
-  cluster_name      = "${var.network_name}"
+  network_name      = "${var.network_name}"
   subnet_cidr       = "${var.public_subnet_cidr}"
 }
 
 module "private-subnet" {
   source            = "app.terraform.io/Darnold-Hashicorp/private-subnet/aws"
-  version           = "1.0.0"
+  version           = "1.0.1"
   subnet_name       = "${var.network_name}-private"
   vpc_id            = "${module.vpc.vpc_id}"
   public_subnet_id  = "${module.public-subnet.subnet_id}"
   availability_zone = "${var.availability_zone}"
-  cluster_name      = "${var.network_name}"
+  network_name      = "${var.network_name}"
   subnet_cidr       = "${var.private_subnet_cidr}"
 }
 
