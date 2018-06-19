@@ -1,6 +1,6 @@
 module "vpc" {
   source   = "app.terraform.io/Darnold-Hashicorp/vpc/aws"
-  version  = "1.0.0}"
+  version  = "1.0.0"
   vpc_cidr = "${var.vpc_cidr}"
 }
 
