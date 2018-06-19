@@ -12,7 +12,7 @@ module "public-subnet" {
   route_table_id    = "${module.vpc.route_table_id}"
   availability_zone = "${var.availability_zone}"
   cluster_name      = "${var.network_name}"
-  subnet_cidr       = "10.0.1.0/24"
+  subnet_cidr       = "${var.public_subnet_cidr}"
 }
 
 module "private-subnet" {
@@ -23,7 +23,7 @@ module "private-subnet" {
   public_subnet_id  = "${module.public-subnet.subnet_id}"
   availability_zone = "${var.availability_zone}"
   cluster_name      = "${var.network_name}"
-  subnet_cidr       = "10.0.2.0/24"
+  subnet_cidr       = "${var.private_subnet_cidr}"
 }
 
 module "bastion" {
