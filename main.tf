@@ -7,7 +7,6 @@ module "vpc" {
 module "public-subnet" {
   source            = "app.terraform.io/Darnold-Hashicorp/public-subnet/aws"
   version           = "1.0.1"
-  subnet_name       = "${var.network_name}-public"
   vpc_id            = "${module.vpc.vpc_id}"
   route_table_id    = "${module.vpc.route_table_id}"
   availability_zone = "${var.availability_zone}"
@@ -17,8 +16,7 @@ module "public-subnet" {
 
 module "private-subnet" {
   source            = "app.terraform.io/Darnold-Hashicorp/private-subnet/aws"
-  version           = "1.0.1"
-  subnet_name       = "${var.network_name}-private"
+  version           = "1.0.2"
   vpc_id            = "${module.vpc.vpc_id}"
   public_subnet_id  = "${module.public-subnet.subnet_id}"
   availability_zone = "${var.availability_zone}"
@@ -33,4 +31,6 @@ module "bastion" {
   cluster_name     = "${var.network_name}"
   key_name         = "${var.key_name}"
   public_subnet_id = "${module.public-subnet.subnet_id}"
+  ssh_access       = "0.0.0.0/0"
+  vpc_id           = "${module.vpc.vpc_id}"
 }
