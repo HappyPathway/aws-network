@@ -1,12 +1,13 @@
 module "vpc" {
-  source   = "app.terraform.io/Darnold-Hashicorp/vpc/aws"
-  version  = "1.0.1"
-  vpc_cidr = "${var.vpc_cidr}"
+  source       = "app.terraform.io/Darnold-Hashicorp/vpc/aws"
+  version      = "1.0.1"
+  vpc_cidr     = "${var.vpc_cidr}"
+  network_name = "${var.network_name}"
 }
 
 module "public-subnet" {
   source            = "app.terraform.io/Darnold-Hashicorp/public-subnet/aws"
-  version           = "1.0.1"
+  version           = "1.0.2"
   vpc_id            = "${module.vpc.vpc_id}"
   route_table_id    = "${module.vpc.route_table_id}"
   availability_zone = "${var.availability_zone}"
