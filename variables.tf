@@ -19,3 +19,13 @@ variable "key_name" {
   type        = "string"
   description = "Specify AWS KeyPair"
 }
+
+variable "availability_zone" {
+  type        = "string"
+  description = "AZ where resources will live"
+}
+
+variable "region" {
+  type        = "string"
+  description = "Region where resources will live"
+}
