@@ -25,3 +25,7 @@ output "key_name" {
 output "vpc_id" {
   value = "${module.vpc.vpc_id}"
 }
+
+output "region" {
+  value = "${var.region}"
+}
