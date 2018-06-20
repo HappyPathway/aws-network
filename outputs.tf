@@ -21,3 +21,7 @@ output "bastion_host" {
 output "key_name" {
   value = "${module.bastion.key_name}"
 }
+
+output "vpc_id" {
+  value = "${module.vpc.vpc_id}"
+}
