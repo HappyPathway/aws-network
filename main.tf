@@ -29,7 +29,7 @@ module "bastion" {
   source           = "app.terraform.io/Darnold-Hashicorp/bastion/aws"
   version          = "1.0.4"
   admin_sg         = "${module.private-subnet.admin_sg}"
-  cluster_name     = "${var.network_name}"
+  network_name     = "${var.network_name}"
   key_name         = "${var.key_name}"
   public_subnet_id = "${module.public-subnet.subnet_id}"
   ssh_access       = "0.0.0.0/0"
