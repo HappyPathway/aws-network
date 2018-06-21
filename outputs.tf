@@ -1,7 +1,7 @@
 output "admin_sgs" {
   value = [
-    "${module.public-subnet1.admin_sg}",
-    "${module.public-subnet2.admin_sg}",
+    "${module.private-subnet1.admin_sg}",
+    "${module.private-subnet2.admin_sg}",
   ]
 
   description = "Security Group ID for Admin SG"
