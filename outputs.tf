@@ -29,3 +29,11 @@ output "vpc_id" {
 output "region" {
   value = "${var.region}"
 }
+
+output "route_table_id" {
+  value = "${module.vpc.route_table_id}"
+}
+
+output "vpc_cidr" {
+  value = "${module.vpc.vpc_cidr}"
+}
