@@ -1,5 +1,9 @@
-output "admin_sg" {
-  value       = "${module.private-subnet.admin_sg}"
+output "admin_sgs" {
+  value = [
+    "${module.public-subnet1.admin_sg}",
+    "${module.public-subnet2.admin_sg}",
+  ]
+
   description = "Security Group ID for Admin SG"
 }
 
@@ -22,7 +26,11 @@ output "private_subnets" {
 }
 
 output "bastion_host" {
-  value       = "${module.bastion.bastion_host}"
+  value = [
+    "${module.bastion1.bastion_host}",
+    "${module.bastion2.bastion_host}",
+  ]
+
   description = "IP Address of Bastion Host"
 }
 
