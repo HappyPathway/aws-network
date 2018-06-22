@@ -29,3 +29,19 @@ variable "region" {
   type        = "string"
   description = "Region where resources will live"
 }
+
+variable "vpc_version" {
+  default = "1.0.1"
+}
+
+variable "bastion_version" {
+  default = "1.0.5"
+}
+
+variable "public_subnet_version" {
+  default = "1.0.2"
+}
+
+variable "private_subnet_version" {
+  default = "1.0.2"
+}
