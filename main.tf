@@ -49,7 +49,7 @@ module "private-subnet2" {
 
 module "bastion1" {
   source           = "app.terraform.io/Darnold-Hashicorp/bastion/aws"
-  version          = "1.0.6"
+  version          = "1.0.7"
   admin_sg         = "${module.private-subnet1.admin_sg}"
   network_name     = "${var.network_name}"
   key_name         = "${var.key_name}"
