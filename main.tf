@@ -14,7 +14,7 @@ module "public-subnet1" {
   route_table_id    = "${module.vpc.route_table_id}"
   availability_zone = "${data.aws_availability_zones.available.names[0]}"
   network_name      = "${var.network_name}-${data.aws_availability_zones.available.names[0]}"
-  subnet_cidr       = "${var.public_subnet_cidr}"
+  subnet_cidr       = "${var.public_subnet_cidr1}"
 }
 
 module "public-subnet2" {
@@ -24,7 +24,7 @@ module "public-subnet2" {
   route_table_id    = "${module.vpc.route_table_id}"
   availability_zone = "${data.aws_availability_zones.available.names[1]}"
   network_name      = "${var.network_name}-${data.aws_availability_zones.available.names[1]}"
-  subnet_cidr       = "${var.public_subnet_cidr}"
+  subnet_cidr       = "${var.public_subnet_cidr2}"
 }
 
 module "private-subnet1" {
@@ -34,7 +34,7 @@ module "private-subnet1" {
   public_subnet_id  = "${module.public-subnet1.subnet_id}"
   availability_zone = "${data.aws_availability_zones.available.names[0]}"
   network_name      = "${var.network_name}-${data.aws_availability_zones.available.names[0]}"
-  subnet_cidr       = "${var.private_subnet_cidr}"
+  subnet_cidr       = "${var.private_subnet_cidr1}"
 }
 
 module "private-subnet2" {
@@ -44,7 +44,7 @@ module "private-subnet2" {
   public_subnet_id  = "${module.public-subnet2.subnet_id}"
   availability_zone = "${data.aws_availability_zones.available.names[1]}"
   network_name      = "${var.network_name}-${data.aws_availability_zones.available.names[1]}"
-  subnet_cidr       = "${var.private_subnet_cidr}"
+  subnet_cidr       = "${var.private_subnet_cidr2}"
 }
 
 module "bastion1" {
