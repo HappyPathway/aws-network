@@ -50,6 +50,15 @@ output "route_table_id" {
   value = "${module.vpc.route_table_id}"
 }
 
+output "nat_gateways" {
+  value = [
+    "${module.private-subnet1.nat_gateway}",
+    "${module.private-subnet2.nat_gateway}",
+  ]
+
+  description = "Nat gateways for private subnets"
+}
+
 output "vpc_cidr" {
   value = "${module.vpc.vpc_cidr}"
 }
