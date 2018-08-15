@@ -3,11 +3,11 @@ variable "vpc_cidr" {
 }
 
 variable "public_subnet_cidr" {
-  default = "10.0.1.0/24"
+  default = "10.20.1.0/24"
 }
 
 variable "private_subnet_cidr" {
-  default = "10.0.2.0/24"
+  default = "10.20.2.0/24"
 }
 
 variable "network_name" {
